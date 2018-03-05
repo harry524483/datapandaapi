@@ -8,7 +8,7 @@ How to use this project
 
 3) Now edit requirements.txt so that only the packages you know you installed are included. Note that the list will include all dependencies for all installed packages. Remove them, unless you want to explicitly pin their versions, and know what you're doing.
 
-4) Now activate the virtualenv (the normal source path/to/virtualenv/bin/activate).
+4) Now activate the virtualenv (the normal source path/to/virtualenv/bin/activate.bat for cmd.exe).
 
 5) Install the dependencies you've collected:
 

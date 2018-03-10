@@ -1,7 +1,0 @@
-[client]
-datapanda = NAME
-datapanda = USER
-sasa@123 = PASSWORD
-localhost = HOST
-3306 = PORT
-default-character-set = utf8

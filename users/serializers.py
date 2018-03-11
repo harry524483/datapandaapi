@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-
+from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 
@@ -12,15 +12,18 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("id", "username", "email", "password", "confirm_password", "date_joined")
+        fields = (
+            "id", "username","first_name", "last_name",
+            "email", "password", "confirm_password"
+        )
 
     def create(self, validated_data):
-        #del validated_data["confirm_password"]
-        #return super(UserRegistrationSerializer, self).create(validated_data)
         user = User(
             username=validated_data['username'],
             email=validated_data['email'],
-            date_joined = validated_data['date_joined'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
+            date_joined = timezone.now(),
         )
         user.set_password(validated_data['password'])
         user.save()
